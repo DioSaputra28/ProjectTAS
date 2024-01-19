@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ Route::get('/', function () {
     ]);
 });
 Route::resource('/pengguna', AdminController::class);
+
+Route::resource('/jadwal', JadwalController::class);
+
+Route::get('/login',[LoginController::class, 'index']);
+Route::post('/login',[LoginController::class, 'authenticate']);
