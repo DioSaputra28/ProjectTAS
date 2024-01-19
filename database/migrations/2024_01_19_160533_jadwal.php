@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
+            $table->integer('iduser');
+            $table->string('blokruang', 100);
+            $table->enum('keterangan', [1, 0])->default(0);
             $table->timestamps();
         });
     }
