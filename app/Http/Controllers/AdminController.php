@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
-use illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminController extends Controller
@@ -36,14 +37,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'namalengkap' => 'required|max:255',
-            'username'=>'required|min:3|max:255|unique:tbuser',
-            'katasandi' => 'required|min:5|max:255'
+            'username'=>'required|min:3|max:255|unique:users',
+            'password' => 'required|min:5|max:255'
         ]);
 
         // $validatedData['katasandi'] = bcrypt($validatedData['katasandi']);
-        $validatedData['katasandi'] = Hash::make($validatedData['katasandi']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
 
@@ -73,7 +75,7 @@ class AdminController extends Controller
 
         return view('admin.pengguna.edit',[
             "title" => "Detail Pengguna"
-        ], compact('tbuser'));
+        ], compact('user'));
     }
 
     /**

@@ -30,19 +30,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					@if ($tbuser->count() > 0)
-						@foreach ($tbuser as $user)
+					@if ($user->count() > 0)
+						@foreach ($user as $item)
 							<tr>
 								<td>{{ $loop->iteration }}</td>
-								<td>{{ $user->namalengkap }}</td>
-								<td>{{ $user->jeniskelamin }}</td>
-								<td>{{ $user->username }}</td>
-								<td>{{ $user->level }}</td>
+								<td>{{ $item->namalengkap }}</td>
+								<td>{{ $item->jeniskelamin }}</td>
+								<td>{{ $item->username }}</td>
+								<td>{{ $item->level }}</td>
 								<td>
 									<div role="group" aria-label="Contoh Biasa" class="d-flex">
-										<a href="{{ route('pengguna.show', ['pengguna' => $user->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
-										<a href="{{ route('pengguna.edit', ['pengguna' => $user->id]) }}" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-										<form action="{{ route('pengguna.destroy', ['pengguna' => $user->id]) }}" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
+										<a href="{{ route('pengguna.show', ['pengguna' => $item->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
+										<a href="{{ route('pengguna.edit', ['pengguna' => $item->id]) }}" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+										<form action="{{ route('pengguna.destroy', ['pengguna' => $item->id]) }}" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger m-1" ><i class="fa fa-trash" aria-hidden="true"></i></button>

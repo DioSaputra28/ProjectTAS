@@ -41,7 +41,7 @@
 			</div>
 			<div class="col-6">
 			  <label for="inputAddress2" class="form-label">Kata Sandi</label>
-			  <input type="password" class="form-control" placeholder="Kata Sandi" name="katasandi" required>
+			  <input type="password" class="form-control" placeholder="Kata Sandi" name="password" required>
 			</div>
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Status</label>

@@ -12,27 +12,27 @@
 	<div class="card-body">
 			<div class="col-md-6">
 			  <label for="inputEmail4" class="form-label">Nama Legkap</label>
-			  <input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" value="{{ $tbuser->namalengkap }}" readonly>
+			  <input type="text" class="form-control" placeholder="Nama Lengkap" name="namalengkap" value="{{ $user->namalengkap }}" readonly>
 			</div>
 			<div class="col-md-6">
 			  <label for="inputPassword4" class="form-label">Jenis Kelamin</label>
-				<input type="text" class="form-control" placeholder="Kata Sandi" value="{{ $tbuser->jeniskelamin }}" readonly>
+				<input type="text" class="form-control" placeholder="Kata Sandi" value="{{ $user->jeniskelamin }}" readonly>
 			</div>
 			<div class="col-6">
 			  <label for="inputAddress" class="form-label">Username</label>
-			  <input type="text" class="form-control" placeholder="Username" name="username" value="{{ $tbuser->username }}" readonly>
+			  <input type="text" class="form-control" placeholder="Username" name="username" value="{{ $user->username }}" readonly>
 			</div>
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Status</label>
-			 <input type="text" class="form-control" placeholder="Kata Sandi" name="katasandi" value="{{ $tbuser->level }}" readonly>
+			 <input type="text" class="form-control" placeholder="Kata Sandi" name="katasandi" value="{{ $user->level }}" readonly>
 			</div>
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Di Tambahkan</label>
-			 <input type="text" class="form-control" placeholder="Kata Sandi" name="katasandi" value="{{ $tbuser->created_at }}" readonly>
+			 <input type="text" class="form-control" placeholder="Kata Sandi" name="katasandi" value="{{ $user->created_at }}" readonly>
 			</div>
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Status</label>
-			 <input type="text" class="form-control" placeholder="-" value="{{ $tbuser->updated_at }}" readonly>
+			 <input type="text" class="form-control" placeholder="-" value="{{ $user->updated_at }}" readonly>
 			</div>
 	</div>
 </div>

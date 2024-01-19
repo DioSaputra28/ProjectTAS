@@ -28,16 +28,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					@if ($tbjadwal->count() > 0)
-						@foreach ($tbjadwal as $jadwal)
+					@if ($jadwal->count() > 0)
+						@foreach ($jadwal as $item)
 							
 						<tr>
 							<td>{{ $loop->iteration }}</td>
-							<td>{{ $jadwal->namalengkap }}</td>
-							<td>{{ $jadwal->blokruang }}</td>
+							<td>{{ $item->namalengkap }}</td>
+							<td>{{ $item->blokruang }}</td>
 							<td>
 								<div role="group" aria-label="Contoh Biasa" class="d-flex">
-									<a href="{{ route('jadwal.show', ['jadwal' => $jadwal->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
+									<a href="{{ route('jadwal.show', ['jadwal' => $item->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
 									<a href="" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 									<form action="" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
 										@csrf
