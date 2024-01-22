@@ -20,10 +20,11 @@ Route::get('/', function () {
     return view('admin.dashboard',[
         "title" => "Dashboard"
     ]);
-});
-Route::resource('/pengguna', AdminController::class);
+})->middleware('auth');
+Route::resource('/pengguna', AdminController::class)->middleware('auth');
 
-Route::resource('/jadwal', JadwalController::class);
+Route::resource('/jadwal', JadwalController::class)->middleware('auth');
 
-Route::get('/login',[LoginController::class, 'index']);
-Route::post('/login',[LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
