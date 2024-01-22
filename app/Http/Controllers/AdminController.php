@@ -45,13 +45,19 @@ class AdminController extends Controller
         ]);
 
         // $validatedData['katasandi'] = bcrypt($validatedData['katasandi']);
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        // $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
+        // User::create($validatedData);
 
-        // $request->session()->flush('sukses', 'Data Berhasil Ditambahkan');
-
-        return redirect('/pengguna/create')->with('sukses', 'Data Berhasil Ditambahkan');
+        // $request->session()->flush('sukses', 'Data Berhasil Ditambahkan');  
+        if (User::create($validatedData)) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+            return redirect('/pengguna/create')->with('sukses', 'Data Berhasil Ditambahkan');
+        }
+            
+        return back()->with('gagal', 'Data Gagal Ditambahkan');
+        //     return redirect('/pengguna/create')->with('gagal', 'Data Gagal Ditambahkan');
+        // }
     }
 
     /**
@@ -60,7 +66,6 @@ class AdminController extends Controller
     public function show(string $id)
     {
         $user = User::findOrFail($id);
-
         return view('admin.pengguna.detail',[
             "title" => "Detail Pengguna"
         ], compact('user'));

@@ -38,8 +38,8 @@
 							<td>
 								<div role="group" aria-label="Contoh Biasa" class="d-flex">
 									<a href="{{ route('jadwal.show', ['jadwal' => $item->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
-									<a href="" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-									<form action="" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
+									<a href="{{ route('jadwal.edit', ['jadwal' => $item->id]) }}" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+									<form action="{{ route('jadwal.destroy', ['jadwal'=>$item->id]) }}" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger m-1" ><i class="fa fa-trash" aria-hidden="true"></i></button>

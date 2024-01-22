@@ -45,11 +45,11 @@
 			</div>
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Status</label>
-			  <select class="form-control" aria-label="Default select example" name="level">
+			  <select class="form-control" aria-label="Default select example" name="status">
 				<option selected disabled>Status</option>
-				<option value="Administrator">Administrator</option>
-				<option value="Kepala TU">Kepala TU</option>
-				<option value="Karyawan">Karyawan</option>
+				<option value="administrator">Administrator</option>
+				<option value="katu">Kepala TU</option>
+				<option value="karyawan">Karyawan</option>
 			  </select>
 			</div>
 			<div class="col-12 mt-2">
