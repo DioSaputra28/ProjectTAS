@@ -48,37 +48,45 @@ class JadwalController extends Controller
      */
     public function show(string $id)    
     {
-        $jadwal = Jadwal::findOrFail($id);
-        $jadwal = DB::table('tbuser')
+        $jadwal = DB::table('users')
         ->join('jadwals', 'users.id', '=', 'jadwals.iduser')
-        ->select('users.*', 'jadwals.*')
+        ->select('users.namalengkap', 'jadwals.*')
         ->where('jadwals.id', '=', $id)
         ->get();
-        dd($jadwal);    
         return view('admin.jadwal.detail', ["title" => "Jadwal","jadwal" => $jadwal]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jadwal $jadwal)
+    public function edit(string $id)
     {
-        //
+        $namaPetugas = User::all();   
+        $jadwal = DB::table('users')
+        ->join('jadwals', 'users.id', '=', 'jadwals.iduser')
+        ->select('users.*', 'jadwals.*')
+        ->where('jadwals.id', '=', $id)
+        ->get();
+        return view('admin.jadwal.edit', ["title" => "Jadwal Edit","jadwal" => $jadwal, "namaPetugas" => $namaPetugas]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jadwal $jadwal)
+    public function update(Request $request, string $id)
     {
-        //
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->update($request->all());
+        return redirect()->route('jadwal.index')->with('sukses', 'Pengguna Telah di update.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jadwal $jadwal)
+    public function destroy(string $id)
     {
-        //
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->delete();
+        return redirect()->route('jadwal.index')->with('sukses', 'Pengguna Telah di Hapus.');
     }
 }

@@ -12,10 +12,10 @@
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
-			@if (Session::has('sukses'))
+			@if(Session::has('sukses'))
 				<div class="alert alert-success" role="alert">
 				{{ Session::get('sukses') }}
-			</div>
+				</div>
 			@endif
 			
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -37,7 +37,7 @@
 								<td>{{ $item->namalengkap }}</td>
 								<td>{{ $item->jeniskelamin }}</td>
 								<td>{{ $item->username }}</td>
-								<td>{{ $item->level }}</td>
+								<td>{{ $item->status }}</td>
 								<td>
 									<div role="group" aria-label="Contoh Biasa" class="d-flex">
 										<a href="{{ route('pengguna.show', ['pengguna' => $item->id]) }}" class="btn btn-secondary m-1"><i class="fa-solid fa-file"></i></a>
