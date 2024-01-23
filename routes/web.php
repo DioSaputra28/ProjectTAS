@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\JurnalKegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,11 @@ Route::get('/', function () {
     ]);
 })->middleware('auth');
 Route::resource('/pengguna', AdminController::class)->middleware('auth');
-
+Route::get('/profil/{id}', [AdminController::class, 'profil'])->middleware('auth');
+Route::get('/passchange', [AdminController::class, 'ubahpass'])->middleware('auth');
 Route::resource('/jadwal', JadwalController::class)->middleware('auth');
+Route::resource('/jurnalkegiatan', JurnalKegiatanController::class)->middleware('auth');
+Route::get('/jurnalkegiatan/status/{id}', [JurnalKegiatanController::class, 'status']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

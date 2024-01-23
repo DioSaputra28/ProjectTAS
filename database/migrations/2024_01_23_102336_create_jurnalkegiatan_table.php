@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('jurnalkegiatan', function (Blueprint $table) {
             $table->id();
             $table->integer('iduser');
-            $table->text('blokruang');
-            $table->enum('keterangan', [1, 0])->default(1);
+            $table->date('tanggal');
+            $table->text('kegiatan');
+            $table->enum('validasi',[1,0])->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('jadwalkegiatan');
     }
 };
