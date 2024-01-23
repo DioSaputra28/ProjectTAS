@@ -30,7 +30,7 @@
 			<div class="col-md-6">
 			  <label for="inputPassword4" class="form-label">Jenis Kelamin</label>
 			  <select class="form-control" aria-label="Default select example" name="jeniskelamin">
-				<option selected disabled>Jenis Kelamin</option>
+				<option value="" selected disabled>Jenis Kelamin</option>
 				<option value="Laki-Laki">Laki-Laki</option>
 				<option value="Perempuan">Perempuan</option>
 			  </select>
@@ -39,16 +39,13 @@
 			  <label for="inputAddress" class="form-label">Username</label>
 			  <input type="text" class="form-control" placeholder="Username" name="username" required>
 			</div>
-			<div class="col-6">
-			  <label for="inputAddress2" class="form-label">Kata Sandi</label>
-			  <input type="password" class="form-control" placeholder="Kata Sandi" name="password" required>
-			</div>
+			  <input type="password" class="form-control" placeholder="Kata Sandi" name="password" value="11111" style="display: none">
 			<div class="col-md-4">
 			  <label for="inputState" class="form-label">Status</label>
-			  <select class="form-control" aria-label="Default select example" name="level">
-				<option selected disabled>Status</option>
+			  <select class="form-control" aria-label="Default select example" name="status">
+				<option value="" selected disabled>Status</option>
 				<option value="Administrator">Administrator</option>
-				<option value="Kepala TU">Kepala TU</option>
+				<option value="KepalaTU">Kepala TU</option>
 				<option value="Karyawan">Karyawan</option>
 			  </select>
 			</div>

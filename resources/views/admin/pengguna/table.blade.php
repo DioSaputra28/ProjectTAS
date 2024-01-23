@@ -12,11 +12,11 @@
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
-			@if (Session::has('sukses'))
-				<div class="alert alert-success" role="alert">
-				{{ Session::get('sukses') }}
+			@if(session()->has('sukses'))
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{ session('sukses') }}
 			</div>
-			@endif
+		@endif
 			
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 				<thead>

@@ -25,8 +25,16 @@ class LoginController extends Controller
 
         
         if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-            return redirect()->intended('/');
+            if(Auth::user()->status == 'administrator'){
+            return redirect('/administrator');
+            // $request->session()->regenerate();
+            // return redirect()->intended('/');
+            }elseif(Auth::user()->status == 'karyawan'){
+                return redirect('/karyawan');
+            }
+
+            
+
         }
         
 

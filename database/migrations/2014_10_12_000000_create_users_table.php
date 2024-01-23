@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('namalengkap');
             $table->string('username')->unique();
-            $table->enum('jeniskelamin',['Laki-Laki','Perempuan']);
-            $table->enum('status',['administrator','katu','karyawan']);
+            $table->string('jeniskelamin');
+            $table->string('status');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
