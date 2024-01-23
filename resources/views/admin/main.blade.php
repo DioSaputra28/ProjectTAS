@@ -1,23 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin 2 - {{ $title }}</title>
+    <title>SIMTAS - {{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css') }}" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
-
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
     {{-- Data Table --}}
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -32,16 +27,17 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon">
+                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+                    <img src="img/logo.png" width="50">
                 </div>
-                <div class="sidebar-brand-text mx-3">simTAS</div>
+                <div class="sidebar-brand-text mx-3">simTAS<br><small>Skansa</small></div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+        @if(Auth::user()->status == "administrator")
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ ($title ==="Dashboard") ? 'active' : '' }}">
                 <a class="nav-link" href="/">
@@ -54,10 +50,8 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Fitur
+                Menu
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item {{ ($title ==="Data Pengguna") ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('pengguna.index') }}" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -65,8 +59,6 @@
                     <span>Data Pengguna</span>
                 </a>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item {{ ($title ==="Jadwal") ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('jadwal.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -74,50 +66,122 @@
                     <span>Jadwal</span>
                 </a>
             </li>
+            <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Kebersihan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Harian</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Laporan") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Laporan</span>
+                </a>
+            </li>
+        
+        @elseif(Auth::user()->status == "karyawan")
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ ($title ==="Dashboard") ? 'active' : '' }}">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Menu
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+            <li class="nav-item {{ ($title ==="Profil") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
+            </li>
+            <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Kebersihan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Harian</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Cetak Jurnal") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Cetak Jurnal</span>
+                </a>
+            </li>
+        @elseif(Auth::user()->status == "katu")
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ ($title ==="Dashboard") ? 'active' : '' }}">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu
+            </div>
+            <li class="nav-item {{ ($title ==="Profil") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
+                </a>
             </li>
-
+            <li class="nav-item {{ ($title ==="Jadwal") ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('jadwal.index') }}" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Jadwal</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Kebersihan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Jurnal Harian</span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($title ==="Laporan") ? 'active' : '' }}">
+                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Laporan</span>
+                </a>
+            </li>
+        @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -143,20 +207,6 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Cari..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -170,7 +220,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->namalengkap  }}</span>
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <!-- Dropdown - User Information -->
@@ -200,7 +250,7 @@
             <footer class="sticky-footer bg-white" style="margin-top: 32%">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; 2024 - PPLG SMKN 1 Bawan</span>
                     </div>
                 </div>
             </footer>
