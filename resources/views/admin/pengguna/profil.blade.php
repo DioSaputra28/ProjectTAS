@@ -16,7 +16,7 @@
 			</div>
 			<div class="col-md-6">
 			  <label for="inputPassword4" class="form-label">Jenis Kelamin</label>
-				<input type="text" class="form-control" value="{{ $user->jeniskelamin }}" readonly>
+			  <input type="text" class="form-control" value="{{ $user->jeniskelamin }}" readonly>
 			</div>
 			<div class="col-6">
 			  <label for="inputAddress" class="form-label">Username</label>

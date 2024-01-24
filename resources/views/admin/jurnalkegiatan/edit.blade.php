@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputState" class="form-label">Kegiatan</label>
-                <textarea name="kegiatan" class="form-control" placeholder="Kegiatan" rows="10">{{ $jurnalkegiatan[0]->kegiatan }}</textarea>
+                <textarea name="kegiatan" class="form-control" placeholder="Kegiatan" rows="10" required>{{ $jurnalkegiatan[0]->kegiatan }}</textarea>
             </div>
 			<div class="col-12 mt-2">
 			  <button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</button>

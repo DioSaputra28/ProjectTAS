@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class JurnalKebersihan extends Model
 {
     use HasFactory;
-    protected $table = 'jurnalKebersihan';
+
+    protected $table = 'jurnalkebersihan';
+    protected $primaryKey = 'id';
+    protected $guarded = [];
+
     protected $fillable = [
         'iduser',
         'idjadwal',
@@ -16,6 +20,12 @@ class JurnalKebersihan extends Model
         'waktu',
         'foto',
         'keterangan',
-        'validasi',
+        'validasi'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

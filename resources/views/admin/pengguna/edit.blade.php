@@ -7,7 +7,7 @@
 
 <div class="card shadow mb-4">
 	<div class="card-header py-3 d-flex justify-content-end">
-        <h4 class="m-0 font-weight-bold text-primary">Detail</h4> 
+        <h4 class="m-0 font-weight-bold text-primary">Edit Data Pengguna</h4> 
 		<a href="{{ route('pengguna.index') }}" class="btn btn-danger ml-auto"><i class="fa-solid fa-arrow-left-long"></i></a>  
 	</div>
 	<div class="card-body">
@@ -44,7 +44,7 @@
 			  </select>
 			</div>
 			<div class="col-12 mt-2">
-			  <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			  <button type="submit" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i> Edit</button>
 			</div>
 		  </form>
 	</div>

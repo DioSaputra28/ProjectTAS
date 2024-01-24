@@ -82,7 +82,7 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
 
         return view('admin.pengguna.edit',[
-            "title" => "Detail Pengguna"
+            "title" => "Edit Data Pengguna"
         ], compact('user'));
     }
 
@@ -114,11 +114,5 @@ class AdminController extends Controller
         return view('admin.pengguna.profil',[
             "title" => "Profil"
         ], compact('user'));
-    }
-
-    public function ubahpass(){
-        return view('admin.pengguna.ubahpass',[
-            "title" => "Ubah Password"
-        ]);
     }
 }

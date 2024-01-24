@@ -28,7 +28,9 @@
 						<th>Tanggal</th>
                         <th>Kegiatan</th>
                         <th>Status Validasi</th>
+						@if (Auth::user()->status == "katu" || Auth::user()->status == "administrator")
 						<th>Aksi</th>
+						@endif
 					</tr>
 				</thead>
 				<tbody>
@@ -47,26 +49,35 @@
 									Telah Divalidasi
 								@endif
 							</td>
+							@if (Auth::user()->status == "katu")
+							<td>
+								<div role="group" aria-label="Contoh Biasa" class="d-flex">  
+								  	@if ($item->validasi == 0)
+										<a href="{{ url('/jurnalkegiatan/status/'.$item->id) }}" class="btn btn-success m-1">Divalidasi</a>
+									@else
+										<a href="{{ url('/jurnalkegiatan/status/'.$item->id) }}" class="btn btn-danger m-1">Batalkan Validasi</a>
+									@endif 
+								 
+								</div>
+							</td>
+							@elseif(Auth::user()->status == "administrator")
 							<td>
 								<div role="group" aria-label="Contoh Biasa" class="d-flex">
-								  @if(Auth::user()->status == "karyawan" || Auth::user()->status == "administrator")
 									<a href="{{ route('jurnalkegiatan.edit', ['jurnalkegiatan' => $item->id]) }}" class="btn btn-warning m-1"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 									<form action="{{ route('jurnalkegiatan.destroy', ['jurnalkegiatan'=>$item->id]) }}" method="POST" onsubmit="return confirm('Yakin ingin Hapus?')">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger m-1" ><i class="fa fa-trash" aria-hidden="true"></i></button>
 									</form>
-								  @endif
-
-								  @if (Auth::user()->status == "katu" || Auth::user()->status == "administrator")
-								  	@if ($item->validasi == 0)
+									
+									@if ($item->validasi == 0)
 										<a href="{{ url('/jurnalkegiatan/status/'.$item->id) }}" class="btn btn-success m-1">Divalidasi</a>
 									@else
 										<a href="{{ url('/jurnalkegiatan/status/'.$item->id) }}" class="btn btn-danger m-1">Batalkan Validasi</a>
 									@endif 
-								  @endif
 								</div>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					@endif
