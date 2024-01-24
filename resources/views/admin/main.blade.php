@@ -60,7 +60,7 @@
                     <span>Data Pengguna</span>
                 </a>
             </li>
-            <li class="nav-item {{ ($title ==="Jadwal") ? 'active' : '' }}">
+            <li class="nav-item {{ ($title ==="Jadwal Kebersihan") ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('jadwal.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-calendar-days"></i>
@@ -74,7 +74,7 @@
                     <span>Jurnal Kebersihan</span>
                 </a>
             </li>
-            <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
+            <li class="nav-item {{ ($title ==="Jurnal Kegiatan") ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('jurnalkegiatan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
