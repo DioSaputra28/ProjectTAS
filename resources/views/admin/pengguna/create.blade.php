@@ -1,7 +1,6 @@
 @extends('admin.main')
 
 @section('container')
-<h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
 
 @if(session()->has('sukses'))
 	<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,7 +10,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3 d-flex justify-content-end">
-        <h4 class="m-0 font-weight-bold text-primary">Data Pengguna</h4> 
+        <h4 class="m-0 font-weight-bold text-primary"> {{ $title }}</h4> 
 		<a href="{{ route('pengguna.index') }}" class="btn btn-danger ml-auto"><i class="fa-solid fa-arrow-left-long"></i></a>  
 	</div>
 	<div class="card-body">

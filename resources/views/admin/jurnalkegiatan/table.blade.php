@@ -2,8 +2,6 @@
 
 @section('container')
 
-<h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3 d-flex justify-content-end">
@@ -98,7 +96,7 @@
 	
 				type: "GET", 
 				dataType: "json", 
-				url: '/jurnalkegiatan/un_status', 
+				url: '/jurnalkegiatan/un_status', 		
 				data: {'validasi': validasi, 'id': id}, 
 				success: function(data){ 
 				console.log(data.success) 

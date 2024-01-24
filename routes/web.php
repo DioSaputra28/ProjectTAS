@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JurnalKebersihanController;
 use App\Http\Controllers\JurnalKegiatanController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\KegiatanKaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,8 @@ Route::resource('/jurnalkegiatan', JurnalKegiatanController::class)->middleware(
 Route::get('/jurnalkegiatan/status/{id}', [JurnalKegiatanController::class, 'status'])->middleware('auth');
 Route::resource('/jurnalkebersihan', JurnalKebersihanController::class)->middleware('auth');
 Route::get('/jurnalkebersihan/status/{id}', [JurnalKebersihanController::class, 'status'])->middleware('auth');
+
+Route::resource('/kegiatankaryawan', KegiatanKaryawanController::class)->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

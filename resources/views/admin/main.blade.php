@@ -30,7 +30,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon">
                     {{-- <i class="fas fa-laugh-wink"></i> --}}
-                    <img src="img/logo.png" width="50">
+                    <img src="{{ asset('img/logo.png') }}" width="50">
                 </div>
                 <div class="sidebar-brand-text mx-3">simTAS<br><small>Skansa</small></div>
             </a>
@@ -111,6 +111,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
+
                 <a class="nav-link" href="{{ route('jurnalkebersihan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>

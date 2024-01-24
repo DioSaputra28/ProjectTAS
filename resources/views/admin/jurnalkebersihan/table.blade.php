@@ -1,9 +1,6 @@
 @extends('admin.main')
 
 @section('container')
-
-<h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3 d-flex justify-content-end">
@@ -39,14 +36,13 @@
 				<tbody>
 					@if ($jurnalkebersihan->count() > 0)
 						@foreach ($jurnalkebersihan as $item)
-							
 						<tr>
 							<td>{{ $loop->iteration }}</td>
 							<td>{{ $item->namalengkap }}</td>
 							<td>{{ $item->tanggal }} {{ $item->waktu }}</td>
-                            <td><img src="{{ asset('/imgKebersihan/'.$item->foto) }}" width="100"></td>
+              <td><img src="{{ asset('/imgKebersihan/'.$item->foto) }}" width="100"></td>
 							<td>{{ $item->keterangan }}</td>
-                            <td>
+               <td>
 								@if($item->validasi == 0)
 									Belum Divalidasi
 								@else
@@ -79,4 +75,22 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(function() { 
+			$('.toggle-class').change(function() { 
+			var validasi = $(this).prop('checked') == true ? 1 : 0;  
+			var id = $(this).data('id');  
+			$.ajax({ 
+	
+				type: "GET", 
+				dataType: "json", 
+				url: '/jurnalkegiatan/un_status', 		
+				data: {'validasi': validasi, 'id': id}, 
+				success: function(data){ 
+				console.log(data.success) 
+			 } 
+		  }); 
+	   }) 
+	}); 
+ </script>
 @endsection

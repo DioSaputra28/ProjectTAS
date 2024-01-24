@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class JurnalKebersihan extends Model
 {
     use HasFactory;
+
     protected $table = 'jurnalkebersihan';
     protected $primaryKey = 'id';
     protected $guarded = [];
 
     protected $fillable = [
-        'id',
         'iduser',
         'idjadwal',
         'tanggal',
@@ -27,4 +27,5 @@ class JurnalKebersihan extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }
