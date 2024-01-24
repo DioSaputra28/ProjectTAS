@@ -19,6 +19,8 @@ use App\Http\Controllers\KegiatanKaryawanController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('admin.dashboard',[
         "title" => "Dashboard"
