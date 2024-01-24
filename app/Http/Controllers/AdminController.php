@@ -41,7 +41,9 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'namalengkap' => 'required|max:255',
             'username'=>'required|min:3|max:255|unique:users',
-            'password' => 'required|min:5|max:255'
+            'password' => 'required|min:5|max:255',
+            'jeniskelamin' => 'required',
+            'status' => 'required',
         ]);
 
         // $validatedData['katasandi'] = bcrypt($validatedData['katasandi']);
