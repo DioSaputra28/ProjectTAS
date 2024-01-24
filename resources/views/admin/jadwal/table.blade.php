@@ -2,12 +2,10 @@
 
 @section('container')
 
-<h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
 	<div class="card-header py-3 d-flex justify-content-end">
-        <h4 class="m-0 font-weight-bold text-primary">List Tugas Kebersihan</h4>
+        <h4 class="m-0 font-weight-bold text-primary">{{ $title }}</h4>
         <a href="{{ route('jadwal.create') }}" class="btn btn-primary ml-auto"><i class="fa fa-plus" aria-hidden="true"></i></i></a>  
 	</div>
 	<div class="card-body">
