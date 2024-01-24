@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkegiatan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Harian</span>
@@ -104,7 +104,7 @@
                 Menu
             </div>
             <li class="nav-item {{ ($title ==="Profil") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseTwo"
+                <a class="nav-link" href="/profil/{{ Auth::user()->id }}" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user"></i>
                     <span>Profil</span>
@@ -118,7 +118,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('kegiatankaryawan.index') }}" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkegiatan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Harian</span>
@@ -147,7 +147,7 @@
                 Menu
             </div>
             <li class="nav-item {{ ($title ==="Profil") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseTwo"
+                <a class="nav-link" href="/profil/{{ Auth::user()->id }}" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user"></i>
                     <span>Profil</span>
@@ -168,7 +168,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Harian") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkegiatan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Harian</span>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -91,9 +92,7 @@ class AdminController extends Controller
     public function update(Request $request, string $id)
     {
         $user = user::findOrFail($id);
-
         $user->update($request->all());
-
         return redirect()->route('pengguna.index')->with('sukses', 'Pengguna Telah di update.');
     }
 
@@ -107,5 +106,19 @@ class AdminController extends Controller
         $user->delete();
 
         return redirect()->route('pengguna.index')->with('sukses', 'Pengguna Telah di Hapus.');
+    }
+
+    public function profil(string $id){
+        $user = User::findOrFail($id);
+
+        return view('admin.pengguna.profil',[
+            "title" => "Profil"
+        ], compact('user'));
+    }
+
+    public function ubahpass(){
+        return view('admin.pengguna.ubahpass',[
+            "title" => "Ubah Password"
+        ]);
     }
 }

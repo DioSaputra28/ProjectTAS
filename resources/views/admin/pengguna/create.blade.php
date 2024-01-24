@@ -38,14 +38,17 @@
 			  <label for="inputAddress" class="form-label">Username</label>
 			  <input type="text" class="form-control" placeholder="Username" name="username" required>
 			</div>
-			  <input type="password" class="form-control" placeholder="Kata Sandi" name="password" value="SKANSA" style="display: none">
-			<div class="col-md-4">
+			<div class="col-6">
+			  <label for="inputAddress2" class="form-label">Kata Sandi</label>
+			  <input type="password" class="form-control" placeholder="Kata Sandi" name="password" value="Banjarnegara" readonly required>
+			</div>
+			<div class="col-6">
 			  <label for="inputState" class="form-label">Status</label>
 			  <select class="form-control" aria-label="Default select example" name="status">
 				<option selected disabled>Status</option>
+				<option value="karyawan">Tenaga Administrasi Sekolah</option>
+				<option value="katu">Kepala Tata Usaha</option>
 				<option value="administrator">Administrator</option>
-				<option value="katu">Kepala TU</option>
-				<option value="karyawan">Karyawan</option>
 			  </select>
 			</div>
 			<div class="col-12 mt-2">

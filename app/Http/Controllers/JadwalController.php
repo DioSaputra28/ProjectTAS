@@ -18,8 +18,9 @@ class JadwalController extends Controller
         $data = DB::table('users')
         ->join('jadwals', 'users.id', '=', 'jadwals.iduser')
         ->select('users.*', 'jadwals.*')
+        ->orderBy('jadwals.id','DESC')
         ->get();
-        return view('admin.jadwal.table',["title" => "Jadwal"])->with('jadwal',$data);
+        return view('admin.jadwal.table',["title" => "Jadwal Kebersihan"])->with('jadwal',$data);
     }
 
     /**
