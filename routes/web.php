@@ -25,18 +25,21 @@ Route::middleware(['guest'])->group(function(){
 });
 
 
-Route::middleware(['auth'])->group(function () {    
+Route::middleware(['auth'])->group(function () {   
+
     Route::get('/', function () {
         return view('admin.dashboard',[
             "title" => "Dashboard"
         ]);
     })->middleware('auth');
-    Route::resource('/pengguna', AdminController::class)->middleware('auth');
+    
+   
     
     Route::resource('/jadwal', JadwalController::class)->middleware('auth');
-    
     Route::get('/logout', [LoginController::class, 'logout']);
-    
-    Route::resource('/jurnalkebersihan',KebersihanController::class);
+    Route::resource('/jurnalkebersihan',KebersihanController::class)->middleware('auth');
 });
 
+Route::middleware('userAkses:administrator')->group(function () {
+    Route::resource('/pengguna', AdminController::class)->middleware('auth');
+});
