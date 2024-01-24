@@ -59,7 +59,7 @@
                     <span>Data Pengguna</span>
                 </a>
             </li>
-            <li class="nav-item {{ ($title ==="Jadwal") ? 'active' : '' }}">
+            <li class="nav-item {{ ($title === 'Jadwal') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('jadwal.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-calendar-days"></i>

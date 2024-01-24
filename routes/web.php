@@ -43,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/jurnalkebersihan', JurnalKebersihanController::class)->middleware('auth');
     Route::get('/jurnalkebersihan/status/{id}', [JurnalKebersihanController::class, 'status'])->middleware('auth');
     Route::resource('/kegiatankaryawan', KegiatanKaryawanController::class)->middleware('auth');
+    Route::get('/passchange', [LoginController::class, 'changepass'])->middleware('auth');
+    Route::post('/passchange', [LoginController::class, 'proseschangepass'])->middleware('auth');
     Route::get('/logout', [LoginController::class, 'logout']);
 
 });
@@ -51,16 +53,10 @@ Route::middleware('userAkses:administrator')->group(function () {
     Route::resource('/pengguna', AdminController::class)->middleware('auth');
     
 });
-Route::middleware('userAkses:karyawan')->group(function () {
-    Route::get('/passchange', [LoginController::class, 'changepass']);
-    Route::post('/passchange', [LoginController::class, 'proseschangepass']);
-    
-});
-Route::middleware('userAkses:katu')->group(function () {
-    Route::get('/passchange', [LoginController::class, 'changepass']);
-    Route::post('/passchange', [LoginController::class, 'proseschangepass']);
-    
-});
+// Route::middleware(['userAkses:karyawan' or 'userAkses:katu'])->group(function () {
+//     Route::get('/passchange', [LoginController::class, 'changepass']);
+//     Route::post('/passchange', [LoginController::class, 'proseschangepass']);
+// });
 
 
 // ini batas
