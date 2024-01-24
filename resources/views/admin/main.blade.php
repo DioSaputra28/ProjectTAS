@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkebersihan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Kebersihan</span>
@@ -111,7 +111,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkebersihan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Kebersihan</span>
@@ -161,7 +161,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Jurnal Kebersihan") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="{{ route('jurnalkebersihan.index') }}" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-file"></i>
                     <span>Jurnal Kebersihan</span>

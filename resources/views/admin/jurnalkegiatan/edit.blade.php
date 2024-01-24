@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-12">
                 <label for="inputState" class="form-label">Kegiatan</label>
-                <textarea name="kegiatan" class="form-control" placeholder="Kegiatan" rows="10">
+                <textarea name="kegiatan" class="form-control" placeholder="Kegiatan" rows="10" required>
                     {{ $jurnalkegiatan[0]->kegiatan }}
                 </textarea>
             </div>

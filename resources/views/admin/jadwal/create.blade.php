@@ -26,7 +26,7 @@
 			  <input type="text" class="form-control" placeholder="Ruangan" name="blokruang" required>
 			</div>
 			<div class="col-12 mt-2">
-			  <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			  <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Simpan</button>
 			</div>
 		  </form>
 	</div>
