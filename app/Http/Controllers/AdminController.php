@@ -53,12 +53,16 @@ class AdminController extends Controller
         // User::create($validatedData);
 
         // $request->session()->flush('sukses', 'Data Berhasil Ditambahkan');  
-        if (User::create($validatedData)) {
+        // if (User::create($validatedData)) {
             $validatedData['password'] = Hash::make($validatedData['password']);
-            return redirect('/pengguna/create')->with('sukses', 'Data Berhasil Ditambahkan');
-        }
             
-        return back()->with('gagal', 'Data Gagal Ditambahkan');
+            User::create($validatedData);
+
+            return redirect('/pengguna')->with('sukses', 'Data Berhasil Ditambahkan');
+
+        // }
+            
+        // return back()->with('gagal', 'Data Gagal Ditambahkan');
         //     return redirect('/pengguna/create')->with('gagal', 'Data Gagal Ditambahkan');
         // }
     }
