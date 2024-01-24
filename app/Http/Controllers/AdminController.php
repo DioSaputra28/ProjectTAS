@@ -58,7 +58,7 @@ class AdminController extends Controller
             
             User::create($validatedData);
 
-            return redirect('/pengguna/create')->with('sukses', 'Data Berhasil Ditambahkan');
+            return redirect('/pengguna')->with('sukses', 'Data Berhasil Ditambahkan');
 
         // }
             
