@@ -245,7 +245,7 @@
                 <div class="container-fluid">
 
                     <!-- Content Row -->
-
+                        
                         @yield('container')
 
             <!-- Footer -->
