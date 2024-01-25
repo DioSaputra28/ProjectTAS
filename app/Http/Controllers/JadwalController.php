@@ -28,7 +28,7 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        $namaPetugas = User::all();   
+        $namaPetugas = User::where('status', '=', 'karyawan')->get();
         return view('admin.jadwal.create',[
             "title" => "Tambah Jadwal"
            ], compact('namaPetugas'));
