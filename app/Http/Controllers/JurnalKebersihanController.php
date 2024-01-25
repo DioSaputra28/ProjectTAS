@@ -23,6 +23,7 @@ class JurnalKebersihanController extends Controller
         ->where('jadwals.iduser','=', $iduser)->first();
 
         if (Auth::user()->status == "karyawan" && $data != NULL ) {
+            $ruangan = Jadwal::where('iduser', '=', $iduser)->latest()->first();
             $data = DB::table('users')
             ->join('jurnalkebersihan', 'users.id', '=', 'jurnalkebersihan.iduser')
             ->join('jadwals','jadwals.id','=','jurnalkebersihan.idjadwal')
@@ -30,7 +31,7 @@ class JurnalKebersihanController extends Controller
             ->where('users.id','=',$iduser)
             ->orderBy('jurnalkebersihan.id','DESC')
             ->get();
-            return view('admin.jurnalkebersihan.table',["title" => "Jurnal Kebersihan"])->with('jurnalkebersihan',$data);
+            return view('admin.jurnalkebersihan.table',["title" => "Jurnal Kebersihan", "ruangan" => $ruangan])->with('jurnalkebersihan',$data);
         }elseif(Auth::user()->status == "karyawan" && $data == NULL){
             return view('admin.jurnalkebersihan.tablenull',["title" => "Jurnal Kebersihan"]);
         }else{
