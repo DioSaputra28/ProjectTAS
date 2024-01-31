@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JadwalController;
-use App\Http\Controllers\JurnalKebersihanController;
-use App\Http\Controllers\JurnalKegiatanController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\JurnalKegiatanController;
+use App\Http\Controllers\JurnalKebersihanController;
 use App\Http\Controllers\KegiatanKaryawanController;
 
 /*
@@ -64,3 +65,6 @@ Route::middleware('userAkses:administrator')->group(function () {
 // 
 // 
 // 
+Route::get('/laporan', [LaporanController::class, 'index']);
+Route::post('/laporan/filter', [LaporanController::class, 'filter']);
+Route::get('/laporan/cetak', [LaporanController::class, 'cetak']);

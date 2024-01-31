@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Laporan") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="/laporan" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-print"></i>
                     <span>Laporan</span>
@@ -177,7 +177,7 @@
                 </a>
             </li>
             <li class="nav-item {{ ($title ==="Laporan") ? 'active' : '' }}">
-                <a class="nav-link" href="#" data-target="#collapseUtilities"
+                <a class="nav-link" href="/lapran" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa-solid fa-print"></i>
                     <span>Laporan</span>
@@ -252,7 +252,7 @@
             <footer class="sticky-footer bg-white" style="margin-top: 32%">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; 2024 - PPLG SMKN 1 Bawan</span>
+                        <span>Copyright &copy; 2024 - PPLG SMKN 1 Bawang</span>
                     </div>
                 </div>
             </footer>
